@@ -1,0 +1,26 @@
+{
+  "name": "armoghan-blogs",
+  "version": "1.0.0",
+  "description": "My Personal Blogs Website build Using Hugo",
+  "scripts": {
+    "dev": "hugo server --buildDrafts --buildFuture --buildExpired --gc --logLevel info --watch",
+    "prod": "hugo server --buildDrafts --buildFuture --buildExpired --gc --logLevel info --watch  -e production",
+    "build": "hugo --gc --logLevel info --cleanDestinationDir --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Armoghan-Blogs/Armoghan-Blogs.git"
+  },
+  "keywords": [
+    "hugo",
+    "hugo-theme",
+    "tailwind",
+    "dark-mode"
+  ],
+  "author": "Armoghan-ul-Mohmin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Armoghan-Blogs/Armoghan-Blogs/issues"
+  },
+  "homepage": "https://github.com/Armoghan-Blogs/Armoghan-Blogs#readme"
+}
