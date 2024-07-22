@@ -7,9 +7,6 @@ updates:
       interval: "weekly" # ⏰ Frequency of updates
     allow:
       - dependency-type: "all" # 👥 Update all types of dependencies (direct and development)
-    # Additional options
-    versioning:
-      - update-type: "increase" # 📈 Only allow updates that increase the version number
 
   - package-ecosystem: "gomod" # 🏠 Hugo and Go modules
     directory: "/" # 📁 Location of Go module manifests (for Hugo)
@@ -17,6 +14,3 @@ updates:
       interval: "weekly" # ⏰ Frequency of updates
     allow:
       - dependency-type: "all" # 👥 Update all types of dependencies (direct and indirect)
-    # Additional options
-    versioning:
-      - update-type: "increase" # 📈 Only allow updates that increase the version number
