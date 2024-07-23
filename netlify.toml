@@ -1,0 +1,12 @@
+[build]
+command = "npm run build"
+publish = "public"
+
+[build.environment]
+HUGO_VERSION = "0.121.1"
+HUGO_ENV = "production"
+HUGO_ENABLEGITINFO = "true"
+
+# This will be your preview build
+[context.deploy-preview]
+command = "hugo --gc --cleanDestinationDir --minify --buildFuture --buildDrafts  -b $DEPLOY_PRIME_URL"
