@@ -58,13 +58,20 @@
             "sizes": "1000x667",
             "type": "image/png",
             "label": "Homepage"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "View Latest Posts",
+            "short_name": "Posts",
+            "description": "Quick access to the latest blog posts.",
+            "url": "/posts"
         },
         {
-            "src": "/img/background-alt.png",
-            "sizes": "3840x2152",
-            "type": "image/png",
-            "label": "Article Page",
-            "form_factor": "wide"
+            "name": "Cheatsheet",
+            "short_name": "Cheatsheet",
+            "description": "Access useful cheatsheets quickly.",
+            "url": "/cheatsheets"
         }
     ]
 }
