@@ -1,10 +1,11 @@
 ---
 title : '{{ replace .File.ContentBaseName "-" " " | title }}'
 date : {{ .Date }}
-description: ""
-summary: ""
 image: ""
 externalUrl: ""
+description: ""
+summary: ""
+slug: ""
 keywords: []
 tags: []
 categories: []
