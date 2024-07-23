@@ -4,6 +4,7 @@ date : {{ .Date }}
 description: ""
 summary: ""
 image: ""
+externalUrl: ""
 keywords: []
 tags: []
 categories: []
@@ -14,4 +15,3 @@ showComments : false
 newsletter : true
 draft : true
 ---
-
