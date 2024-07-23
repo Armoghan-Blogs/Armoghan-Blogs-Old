@@ -1,0 +1,51 @@
+{{- $sw := resources.Get "sw.js" }}
+{{- $swJS := $sw | js.Build }}
+{{- if eq hugo.Environment "production" }}
+  {{- $swJS = $sw | js.Build (dict "minify" true) | fingerprint }}
+{{- end }}
+
+<script>
+  const maxAttempts = 5;
+  const retryInterval = 10000; // Interval in milliseconds (10 seconds)
+  const attemptsKey = 'swRegistrationAttempts';
+  const nextAttemptKey = 'swNextAttempt';
+
+  function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('{{ $swJS.RelPermalink }}', { scope: '/' })
+        .then(() => {
+          // Registration succeeded, do nothing
+          localStorage.removeItem(attemptsKey); // Reset attempts on success
+        })
+        .catch(() => {
+          // Registration failed, increment attempt counter and retry
+          let attempts = parseInt(localStorage.getItem(attemptsKey)) || 0;
+          attempts++;
+
+          if (attempts < maxAttempts) {
+            localStorage.setItem(attemptsKey, attempts);
+            // Retry after some interval
+            setTimeout(registerServiceWorker, retryInterval);
+          } else {
+            // Max attempts reached, set the next attempt time
+            const nextAttempt = Date.now() + retryInterval * 10; // Retry after a longer interval
+            localStorage.setItem(nextAttemptKey, nextAttempt);
+            localStorage.removeItem(attemptsKey); // Reset attempt counter
+          }
+        });
+    }
+  }
+
+  function checkRetry() {
+    const nextAttempt = parseInt(localStorage.getItem(nextAttemptKey));
+    if (nextAttempt && Date.now() > nextAttempt) {
+      localStorage.removeItem(nextAttemptKey); // Remove next attempt key
+      registerServiceWorker(); // Retry registration
+    }
+  }
+
+  window.addEventListener('load', () => {
+    checkRetry(); // Check if it's time to retry
+    registerServiceWorker(); // Initial registration attempt
+  });
+</script>
