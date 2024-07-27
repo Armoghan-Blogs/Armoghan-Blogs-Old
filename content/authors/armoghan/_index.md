@@ -1,7 +1,7 @@
 ---
 title: "Armoghan-ul-Mohmin"
 description: "Armoghan-ul-Mohmin, a dedicated student of Digital Forensics and Cybersecurity at Lahore Garrison University, shares his passion for understanding and protecting digital systems. Explore his journey towards becoming a cybersecurity expert."
-keywords: ["Armoghan-ul-Mohmin", "Digital Forensics", "Cybersecurity", "Lahore Garrison University", "Cybersecurity Expert", "Digital Systems Protection", "Cybersecurity Trends"]
+keywords: ["Armoghan-ul-Mohmin", "Digital Forensics", "Cybersecurity", "Cybersecurity Trends"]
 ---
 
 I am Armoghan-ul-Mohmin, a student studying Digital Forensics and Cybersecurity at Lahore Garrison University. I am passionate about understanding and protecting digital systems. I love solving digital mysteries and keeping up with the latest trends in cybersecurity. My goal is to become a cybersecurity expert and help make the digital world safer.
