@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "My Personal Blogs Website build Using Hugo",
   "scripts": {
+    "copy-decap-cms": "cp node_modules/decap-cms-app/dist/decap-cms-app.js assets/",
+    "preinstall": "npm run copy-decap-cms",
+    "prebuild": "npm run copy-decap-cms",
+    "predev": "npm run copy-decap-cms",
+    "preprod": "npm run copy-decap-cms",
     "dev": "hugo server --buildDrafts --buildFuture --buildExpired --gc --logLevel info --watch",
     "prod": "hugo server --buildDrafts --buildFuture --buildExpired --gc --logLevel info --watch  -e production",
     "build": "hugo --gc --logLevel info --cleanDestinationDir --minify"
@@ -22,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/Armoghan-Blogs/Armoghan-Blogs/issues"
   },
-  "homepage": "https://github.com/Armoghan-Blogs/Armoghan-Blogs#readme"
+  "homepage": "https://github.com/Armoghan-Blogs/Armoghan-Blogs#readme",
+  "dependencies": {
+    "decap-cms-app": "^3.1.11"
+  }
 }

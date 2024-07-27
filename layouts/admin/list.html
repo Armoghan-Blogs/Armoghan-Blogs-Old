@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>{{ .Site.Title }} | {{ .Title }}</title>
+  </head>
+
+  <body>
+   <!-- Include the script that builds the page and powers Decap CMS -->
+   {{- with resources.Get "decap-cms-app.js" }}
+   {{- if eq hugo.Environment "development" }}
+     {{- with . | js.Build }}
+       <script src="{{ .RelPermalink }}"></script>
+     {{- end }}
+   {{- else }}
+     {{- $opts := dict "minify" true }}
+     {{- with . | js.Build $opts | fingerprint }}
+       <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+     {{- end }}
+   {{- end }}
+ {{- end }}
+
+    <!-- Include the script that builds the page and powers Decap CMS -->
+    {{- with resources.Get "cms.js" }}
+    {{- if eq hugo.Environment "development" }}
+      {{- with . | js.Build }}
+        <script src="{{ .RelPermalink }}"></script>
+      {{- end }}
+    {{- else }}
+      {{- $opts := dict "minify" true }}
+      {{- with . | js.Build $opts | fingerprint }}
+        <script type="module" src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+  </body>
+</html>
