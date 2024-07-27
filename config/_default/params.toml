@@ -6,7 +6,7 @@ enableCodeCopy = true
 mainSections = ["posts", "categories"]
 disableImageOptimization = true
 defaultBackgroundImage = "img/background.jpeg" # used as default for background images
-defaultFeaturedImage = "/img/ocebackground-altan.jpeg"
+defaultFeaturedImage = "/img/background-altan.jpeg"
 highlightCurrentMenuArea = true
 smartTOC = true
 

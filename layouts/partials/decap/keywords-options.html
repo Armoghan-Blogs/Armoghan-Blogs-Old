@@ -1,0 +1,15 @@
+{{- $keywords := slice -}}
+{{- range .Site.Pages -}}
+  {{- $keywords = union $keywords .Params.keywords -}}
+{{- end -}}
+
+{{- $uniquekeywords := slice -}}
+{{- range $keywords -}}
+  {{- $uniquekeywords = cond (not (in $uniquekeywords .)) (union $uniquekeywords (slice .)) $uniquekeywords -}}
+{{- end -}}
+
+{{- with $uniquekeywords -}}
+  {{- range $index, $keyword := . -}}
+    {{- if $index }},{{ end }}"{{ $keyword }}"
+  {{- end -}}
+{{- end -}}

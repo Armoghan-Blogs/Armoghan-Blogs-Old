@@ -1,0 +1,15 @@
+{{- $series := slice -}}
+{{- range .Site.Pages -}}
+  {{- $series = union $series .Params.series -}}
+{{- end -}}
+
+{{- $uniqueseries := slice -}}
+{{- range $series -}}
+  {{- $uniqueseries = cond (not (in $uniqueseries .)) (union $uniqueseries (slice .)) $uniqueseries -}}
+{{- end -}}
+
+{{- with $uniqueseries -}}
+  {{- range $index, $serie := . -}}
+    {{- if $index }},{{ end }}"{{ $serie }}"
+  {{- end -}}
+{{- end -}}
