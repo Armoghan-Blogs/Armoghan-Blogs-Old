@@ -118,11 +118,13 @@
             {{ range .Site.Sections }}
                 {{ $sectionTitle := .Title }}
                 {{ if ne $sectionTitle "Site Report" }}
+                {{ if ne $sectionTitle "Content Manager" }}
                     {{ $sectionPermalink := .RelPermalink }}
                     {{ $cleanPermalink := replace $sectionPermalink "/" "" }}
                     {{ $sectionPages := where $.Site.RegularPages "Section" $cleanPermalink }}
                     {{ $totalArticles := len $sectionPages }}
                     {{ $sections = $sections | append (dict "title" $sectionTitle "permalink" $sectionPermalink "total" $totalArticles) }}
+                {{ end }}
                 {{ end }}
             {{ end }}
             <table class="w-full border-separate">
