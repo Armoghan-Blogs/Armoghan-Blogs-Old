@@ -8,6 +8,7 @@
     "prebuild": "npm run copy-decap-cms",
     "predev": "npm run copy-decap-cms",
     "preprod": "npm run copy-decap-cms",
+    "decap-dev": "npx decap-server",
     "dev": "hugo server --buildDrafts --buildFuture --buildExpired --gc --logLevel info --watch",
     "prod": "hugo server --buildDrafts --buildFuture --buildExpired --gc --logLevel info --watch  -e production",
     "build": "hugo --gc --logLevel info --cleanDestinationDir --minify"
