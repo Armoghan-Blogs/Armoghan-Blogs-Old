@@ -4,10 +4,12 @@
   "description": "My Personal Blogs Website build Using Hugo",
   "scripts": {
     "copy-decap-cms": "cp node_modules/decap-cms-app/dist/decap-cms-app.js assets/",
-    "preinstall": "npm run copy-decap-cms",
-    "prebuild": "npm run copy-decap-cms",
-    "predev": "npm run copy-decap-cms",
-    "preprod": "npm run copy-decap-cms",
+    "copy-netlify-identity-widget": "cp node_modules/netlify-identity-widget/build/netlify-identity-widget.js assets/",
+    "copy-all": "npm run copy-decap-cms && npm run copy-netlify-identity-widget",
+    "preinstall": "npm run copy-all",
+    "prebuild": "npm run copy-all",
+    "predev": "npm run copy-all",
+    "preprod": "npm run copy-all",
     "decap-dev": "npx decap-server",
     "dev": "hugo server --buildDrafts --buildFuture --buildExpired --gc --logLevel info --watch",
     "prod": "hugo server --buildDrafts --buildFuture --buildExpired --gc --logLevel info --watch  -e production",
@@ -30,6 +32,8 @@
   },
   "homepage": "https://github.com/Armoghan-Blogs/Armoghan-Blogs#readme",
   "dependencies": {
-    "decap-cms-app": "^3.1.11"
+    "decap-cms-app": "^3.1.11",
+    "netlify-identity-widget": "^1.9.2"
   }
 }
+
