@@ -10,7 +10,7 @@ local_backend:
 # Production mode configuration
 backend:
   name: git-gateway
-  branch: "{{ "{{ .Site.Params.DecapCMS.branch }}" }}"
+  branch: {{ .Site.Params.DecapCMS.branch }}
   commit_messages:
     create: Create {{ "{{collection}}" }}
     update: Update {{ "{{collection}}" }}
