@@ -10,8 +10,16 @@ local_backend:
 # Production mode configuration
 backend:
   name: git-gateway
-  branch: "{{ .Site.Params.DecapCMS.branch }}"
+  branch: "{{ "{{ .Site.Params.DecapCMS.branch }}" }}"
+  commit_messages:
+    create: Create {{ "{{collection}}" }}
+    update: Update {{ "{{collection}}" }}
+    delete: Delete {{ "{{collection}}" }}
+    uploadMedia: Upload “{{ "{{path}}" }}”
+    deleteMedia: Delete “{{ "{{path}}" }}”
+    openAuthoring: '{{ "{{message}}" }}'
 {{ end }}
+
 # Folder for storing media files
 media_folder: "{{ .Site.Params.DecapCMS.media }}"
 # Public URL path for accessing media files
@@ -30,6 +38,22 @@ logo_url: "{{ .Site.Params.DecapCMS.logo }}"
 show_preview_links: {{ .Site.Params.DecapCMS.preview }}
 # Disable search for faster rendering
 search: {{ .Site.Params.DecapCMS.search }}
+
+view_filters:
+  - label: 'Drafts'
+    field: status
+    pattern: 'draft'
+  - label: 'In Review'
+    field: status
+    pattern: 'inreview'
+  - label: 'Ready'
+    field: status
+    pattern: 'ready'
+
+view_groups:
+  - label: Year
+    field: date
+    pattern: \d{4}
 
 collections:
   # All Posts
